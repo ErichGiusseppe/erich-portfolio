@@ -55,17 +55,24 @@ function ParticleCanvas() {
     if (!ctx) return
 
     const resize = () => {
-      canvas.width = canvas.offsetWidth
-      canvas.height = canvas.offsetHeight
+      const w = canvas.offsetWidth
+      const h = canvas.offsetHeight
+      if (w > 0 && h > 0) {
+        canvas.width = w
+        canvas.height = h
+      }
     }
     resize()
     window.addEventListener('resize', resize, { passive: true })
 
     type Particle = { x: number; y: number; vx: number; vy: number; r: number }
 
+    const w = canvas.width || window.innerWidth
+    const h = canvas.height || window.innerHeight
+
     const particles: Particle[] = Array.from({ length: 55 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
+      x: Math.random() * w,
+      y: Math.random() * h,
       vx: (Math.random() - 0.5) * 0.25,
       vy: (Math.random() - 0.5) * 0.25,
       r: Math.random() * 1.2 + 0.4,

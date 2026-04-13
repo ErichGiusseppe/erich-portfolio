@@ -8,8 +8,12 @@ import { personal } from '@/data/portfolio'
 export default function Contact() {
   const [copied, setCopied] = useState(false)
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText(personal.email)
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(personal.email)
+    } catch {
+      // fallback for browsers that block clipboard access
+    }
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
