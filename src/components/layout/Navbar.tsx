@@ -55,7 +55,7 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+        <div className="relative max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
           <a
             href="#"
             translate="no"
@@ -64,7 +64,7 @@ export default function Navbar() {
             EG<span className="text-primary">.</span>
           </a>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
             {links.map(link => (
               <a
                 key={link.href}
