@@ -39,10 +39,10 @@ export default function Contact() {
           <div className="glass-panel rounded-2xl p-10 mb-12">
             <button
               onClick={copyEmail}
-              className="group flex items-center gap-3 mx-auto font-label text-xl md:text-2xl text-primary hover:text-primary-fixed-dim transition-colors"
+              className="group flex items-center gap-2 mx-auto font-label text-sm sm:text-lg md:text-2xl text-primary hover:text-primary-fixed-dim transition-colors max-w-full"
               aria-label="Copy email address"
             >
-              <span>{personal.email}</span>
+              <span className="break-all text-left">{personal.email}</span>
               <motion.span
                 key={copied ? 'check' : 'copy'}
                 initial={{ scale: 0.8, opacity: 0 }}

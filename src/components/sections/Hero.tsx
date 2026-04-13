@@ -9,22 +9,19 @@ function useTypewriter(words: string[], speed = 80, pause = 2200) {
   const [wordIndex, setWordIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
   const [deleting, setDeleting] = useState(false)
-  const [waiting, setWaiting] = useState(false)
+  const pauseTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
-    if (waiting) return
     const word = words[wordIndex % words.length]
-
     const delay = deleting ? speed * 0.5 : speed
+
     const timer = setTimeout(() => {
       if (!deleting) {
         if (charIndex < word.length) {
           setDisplayed(word.slice(0, charIndex + 1))
           setCharIndex(c => c + 1)
         } else {
-          setWaiting(true)
-          setTimeout(() => {
-            setWaiting(false)
+          pauseTimer.current = setTimeout(() => {
             setDeleting(true)
           }, pause)
         }
@@ -39,8 +36,11 @@ function useTypewriter(words: string[], speed = 80, pause = 2200) {
       }
     }, delay)
 
-    return () => clearTimeout(timer)
-  }, [charIndex, deleting, waiting, wordIndex, words, speed, pause])
+    return () => {
+      clearTimeout(timer)
+      if (pauseTimer.current) clearTimeout(pauseTimer.current)
+    }
+  }, [charIndex, deleting, wordIndex, words, speed, pause])
 
   return displayed
 }
