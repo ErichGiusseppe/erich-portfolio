@@ -5,7 +5,7 @@ import { personal, skills } from '@/data/portfolio'
 
 export default function About() {
   return (
-    <section id="about" className="py-32 px-6 md:px-10 bg-surface-container-low">
+    <section id="about" className="pt-40 pb-32 px-6 md:px-10 bg-surface-container-low">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
 
         <div className="lg:col-span-7">
