@@ -116,10 +116,10 @@ export default function Navbar() {
             className="md:hidden text-on-surface p-2"
             aria-label="Toggle menu"
           >
-            <div className="w-5 h-[14px] flex flex-col justify-between">
-              <span className={`block h-px bg-current transition-all duration-300 origin-center ${menuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-              <span className={`block h-px bg-current transition-all duration-300 ${menuOpen ? 'opacity-0 scale-x-0' : ''}`} />
-              <span className={`block h-px bg-current transition-all duration-300 origin-center ${menuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+            <div className="relative w-5 h-[14px]">
+              <span className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 top-0 [transform-origin:50%_350%] ${menuOpen ? 'rotate-45' : ''}`} />
+              <span className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 top-[6px] ${menuOpen ? 'opacity-0 scale-x-0' : ''}`} />
+              <span className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 bottom-0 [transform-origin:50%_-250%] ${menuOpen ? '-rotate-45' : ''}`} />
             </div>
           </button>
         </div>
