@@ -7,11 +7,13 @@ import Projects from '@/components/sections/Projects'
 import Publications from '@/components/sections/Publications'
 import Education from '@/components/sections/Education'
 import Contact from '@/components/sections/Contact'
+import SectionDots from '@/components/ui/SectionDots'
 
 export default function Home() {
   return (
     <>
       <Navbar />
+      <SectionDots />
       <main>
         <Hero />
         <About />
