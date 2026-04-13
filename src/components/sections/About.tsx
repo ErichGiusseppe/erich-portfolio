@@ -1,9 +1,11 @@
 'use client'
 
 import AnimatedSection, { StaggerContainer, StaggerItem } from '@/components/ui/AnimatedSection'
-import { personal, skills } from '@/data/portfolio'
+import { skills } from '@/data/portfolio'
+import { useLanguage } from '@/lib/i18n'
 
 export default function About() {
+  const { tr } = useLanguage()
   return (
     <section id="about" className="pt-40 pb-32 px-6 md:px-10 bg-surface-container-low">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
@@ -11,17 +13,17 @@ export default function About() {
         <div className="lg:col-span-7">
           <AnimatedSection>
             <span className="font-label text-xs tracking-[0.3em] text-primary uppercase mb-4 block">
-              About
+              {tr.about.label}
             </span>
             <h2 className="font-headline text-4xl md:text-5xl italic text-on-surface mb-10 leading-tight">
-              Bridging rigorous research
+              {tr.about.heading1}
               <br />
-              with production ML systems
+              {tr.about.heading2}
             </h2>
           </AnimatedSection>
 
           <StaggerContainer className="space-y-5" staggerDelay={0.12}>
-            {personal.bio.map((para, i) => (
+            {tr.about.bio.map((para, i) => (
               <StaggerItem key={i}>
                 <p className="font-body text-on-surface-variant text-lg leading-relaxed">
                   {para}
@@ -32,7 +34,7 @@ export default function About() {
 
           <AnimatedSection delay={0.4}>
             <div className="mt-12 pt-10 border-t border-outline-variant/20 grid grid-cols-2 sm:grid-cols-4 gap-6">
-              {personal.stats.map(stat => (
+              {tr.about.stats.map(stat => (
                 <div key={stat.label}>
                   <span className="block font-headline text-2xl text-secondary mb-1">
                     {stat.value}
@@ -50,7 +52,7 @@ export default function About() {
           <AnimatedSection delay={0.2} direction="left">
             <div className="glass-panel p-8 rounded-2xl">
               <span className="font-label text-xs uppercase tracking-widest text-primary mb-8 block">
-                Technical Stack
+                {tr.about.stack}
               </span>
               <div className="space-y-6">
                 {Object.entries(skills).map(([category, items]) => (

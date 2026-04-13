@@ -3,17 +3,19 @@
 import { motion } from 'framer-motion'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { experience } from '@/data/portfolio'
+import { useLanguage } from '@/lib/i18n'
 
 export default function Experience() {
+  const { tr } = useLanguage()
   return (
     <section id="experience" className="py-32 px-6 md:px-10 bg-surface">
       <div className="max-w-5xl mx-auto">
         <AnimatedSection>
           <span className="font-label text-xs tracking-[0.3em] text-primary uppercase mb-4 block">
-            Experience
+            {tr.experience.label}
           </span>
           <h2 className="font-headline text-4xl md:text-5xl italic text-on-surface mb-20 leading-tight">
-            Professional narrative
+            {tr.experience.heading}
           </h2>
         </AnimatedSection>
 
@@ -56,7 +58,7 @@ export default function Experience() {
                       {item.company}
                     </p>
                     {item.companyType && (
-                      <p className="font-label text-xs text-outline/50 mt-0.5">
+                      <p className="font-label text-xs text-outline/65 mt-0.5">
                         {item.companyType}
                       </p>
                     )}

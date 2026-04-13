@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Noto_Serif, DM_Sans } from 'next/font/google'
+import { LanguageProvider } from '@/lib/i18n'
 import './globals.css'
 
 const inter = Inter({
@@ -53,7 +54,9 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body bg-surface text-on-surface antialiased">
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   )

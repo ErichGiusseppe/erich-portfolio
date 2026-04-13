@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { personal } from '@/data/portfolio'
+import { useLanguage } from '@/lib/i18n'
 
 function useTypewriter(words: string[], speed = 80, pause = 2200) {
   const [displayed, setDisplayed] = useState('')
@@ -131,6 +132,7 @@ function ParticleCanvas() {
 }
 
 export default function Hero() {
+  const { tr } = useLanguage()
   const typewritten = useTypewriter(personal.roles)
 
   const containerVariants = {
@@ -166,7 +168,7 @@ export default function Hero() {
           variants={itemVariants}
           className="font-label text-xs tracking-[0.35em] text-secondary uppercase mb-8 block"
         >
-          Researcher &amp; Engineer · Bogotá, Colombia
+          {tr.hero.label}
         </motion.span>
 
         <motion.h1
@@ -192,7 +194,7 @@ export default function Hero() {
           variants={itemVariants}
           className="font-body text-on-surface-variant max-w-xl mx-auto mb-12 leading-relaxed"
         >
-          {personal.tagline}
+          {tr.hero.tagline}
         </motion.p>
 
         <motion.div
@@ -203,13 +205,13 @@ export default function Hero() {
             href="#contact"
             className="gradient-cta text-on-primary font-label font-semibold px-8 py-3.5 rounded-xl tracking-wide hover:opacity-90 transition-opacity shadow-glow-primary"
           >
-            Let&apos;s talk →
+            {tr.hero.cta}
           </a>
           <a
             href="#projects"
             className="glass-panel font-label font-semibold px-8 py-3.5 rounded-xl tracking-wide text-on-surface hover:bg-surface-container-high transition-colors"
           >
-            View Projects
+            {tr.hero.projects}
           </a>
         </motion.div>
 
@@ -259,7 +261,7 @@ export default function Hero() {
         animate={{ opacity: 0.6 }}
         transition={{ delay: 2.5, duration: 1 }}
       >
-        <span className="font-label text-[10px] uppercase tracking-[0.25em]">Scroll</span>
+        <span className="font-label text-[10px] uppercase tracking-[0.25em]">{tr.hero.scroll}</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}

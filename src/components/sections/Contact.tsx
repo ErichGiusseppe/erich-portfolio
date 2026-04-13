@@ -4,8 +4,10 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { personal } from '@/data/portfolio'
+import { useLanguage } from '@/lib/i18n'
 
 export default function Contact() {
+  const { tr } = useLanguage()
   const [copied, setCopied] = useState(false)
 
   const copyEmail = async () => {
@@ -23,15 +25,15 @@ export default function Contact() {
       <div className="max-w-3xl mx-auto text-center">
         <AnimatedSection>
           <span className="font-label text-xs tracking-[0.3em] text-primary uppercase mb-6 block">
-            Contact
+            {tr.contact.label}
           </span>
           <h2 className="font-headline text-5xl md:text-6xl italic text-on-surface mb-6 leading-tight">
-            Let&apos;s build something
+            {tr.contact.heading1}
             <br />
-            <span className="text-primary">intelligent</span> together.
+            <span className="text-primary">{tr.contact.heading2}</span> {tr.contact.heading3}
           </h2>
           <p className="font-body text-on-surface-variant text-lg mb-16 leading-relaxed">
-            Open to research collaborations, ML engineering roles, and interesting problems.
+            {tr.contact.sub}
           </p>
         </AnimatedSection>
 
@@ -66,7 +68,7 @@ export default function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 className="font-label text-xs text-secondary mt-3"
               >
-                Copied to clipboard
+                {tr.contact.copied}
               </motion.p>
             )}
 
@@ -91,7 +93,7 @@ export default function Contact() {
                 href={`mailto:${personal.email}`}
                 className="gradient-cta text-on-primary font-label text-xs font-semibold px-6 py-2.5 rounded-lg tracking-wide hover:opacity-90 transition-opacity"
               >
-                Send Email
+                {tr.contact.sendEmail}
               </a>
             </div>
           </div>
@@ -101,7 +103,7 @@ export default function Contact() {
           <div className="flex items-center gap-3 justify-center">
             <div className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse-slow" />
             <span className="font-label text-xs uppercase tracking-widest text-secondary">
-              Available for new opportunities
+              {tr.contact.available}
             </span>
           </div>
         </AnimatedSection>

@@ -3,17 +3,19 @@
 import { motion } from 'framer-motion'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { publications } from '@/data/portfolio'
+import { useLanguage } from '@/lib/i18n'
 
 export default function Publications() {
+  const { tr } = useLanguage()
   return (
     <section id="publications" className="py-32 px-6 md:px-10 bg-surface-container-low">
       <div className="max-w-5xl mx-auto">
         <AnimatedSection>
           <span className="font-label text-xs tracking-[0.3em] text-primary uppercase mb-4 block">
-            Publications
+            {tr.publications.label}
           </span>
           <h2 className="font-headline text-4xl md:text-5xl italic text-on-surface mb-16 leading-tight">
-            Peer-reviewed research
+            {tr.publications.heading}
           </h2>
         </AnimatedSection>
 

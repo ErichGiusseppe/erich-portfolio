@@ -3,18 +3,22 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { personal } from '@/data/portfolio'
+import { useLanguage, LangSelector } from '@/lib/i18n'
 
-const links = [
-  { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Publications', href: '#publications' },
-]
+const NAV_HREFS = ['#about', '#experience', '#projects', '#publications']
 
 export default function Navbar() {
+  const { tr } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
+
+  const links = [
+    { label: tr.nav.about, href: '#about' },
+    { label: tr.nav.experience, href: '#experience' },
+    { label: tr.nav.projects, href: '#projects' },
+    { label: tr.nav.publications, href: '#publications' },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -23,7 +27,7 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    const sections = [...links.map(l => l.href.slice(1)), 'contact']
+    const sections = [...NAV_HREFS.map(h => h.slice(1)), 'contact']
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(e => {
@@ -103,11 +107,12 @@ export default function Navbar() {
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
               </svg>
             </a>
+            <LangSelector />
             <a
               href="#contact"
               className="gradient-cta text-on-primary font-label text-xs font-semibold px-5 py-2 rounded-lg tracking-wide hover:opacity-90 transition-opacity"
             >
-              Let&apos;s talk →
+              {tr.nav.cta}
             </a>
           </div>
 
@@ -142,7 +147,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 }}
             >
-              Let&apos;s talk →
+              {tr.nav.cta}
             </motion.a>
 
             <div className="w-12 h-px bg-outline-variant/30" />
@@ -160,6 +165,9 @@ export default function Navbar() {
                 {link.label}
               </motion.a>
             ))}
+
+            <div className="w-12 h-px bg-outline-variant/30" />
+            <LangSelector />
           </motion.div>
         )}
       </AnimatePresence>

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { projects } from '@/data/portfolio'
+import { useLanguage } from '@/lib/i18n'
 
 const iconMap: Record<string, JSX.Element> = {
   psychology: (
@@ -28,16 +29,17 @@ const iconMap: Record<string, JSX.Element> = {
 }
 
 export default function Projects() {
+  const { tr } = useLanguage()
   return (
     <section id="projects" className="py-32 px-6 md:px-10 bg-surface-container-lowest">
       <div className="max-w-7xl mx-auto">
         <AnimatedSection className="mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <span className="font-label text-xs tracking-[0.3em] text-primary uppercase mb-4 block">
-              Projects
+              {tr.projects.label}
             </span>
             <h2 className="font-headline text-4xl md:text-5xl italic text-on-surface leading-tight">
-              Selected work
+              {tr.projects.heading}
             </h2>
           </div>
           <a
@@ -46,7 +48,7 @@ export default function Projects() {
             rel="noopener noreferrer"
             className="font-label text-xs text-secondary underline underline-offset-4 decoration-secondary/30 hover:decoration-secondary/80 transition-all shrink-0"
           >
-            View GitHub →
+            {tr.projects.github}
           </a>
         </AnimatedSection>
 
