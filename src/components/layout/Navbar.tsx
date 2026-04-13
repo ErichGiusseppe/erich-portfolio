@@ -117,9 +117,9 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <div className="relative w-5 h-[14px]">
-              <span className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 top-0 [transform-origin:50%_350%] ${menuOpen ? 'rotate-45' : ''}`} />
-              <span className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 top-[6px] ${menuOpen ? 'opacity-0 scale-x-0' : ''}`} />
-              <span className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 bottom-0 [transform-origin:50%_-250%] ${menuOpen ? '-rotate-45' : ''}`} />
+              <span className={`absolute left-0 right-0 h-0.5 bg-current transition-all duration-300 ${menuOpen ? 'top-[6px] rotate-45' : 'top-0'}`} />
+              <span className={`absolute left-0 right-0 h-0.5 bg-current transition-all duration-300 top-[6px] ${menuOpen ? 'opacity-0 scale-x-0' : ''}`} />
+              <span className={`absolute left-0 right-0 h-0.5 bg-current transition-all duration-300 ${menuOpen ? 'top-[6px] -rotate-45' : 'top-[12px]'}`} />
             </div>
           </button>
         </div>
