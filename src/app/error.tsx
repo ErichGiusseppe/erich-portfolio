@@ -10,8 +10,19 @@ export default function Error({
   reset: () => void
 }) {
   useEffect(() => {
+    const isTranslationError =
+      error.message.includes('Minified React error') ||
+      error.message.includes('hydrat') ||
+      error.message.includes('Text content') ||
+      error.message.includes('FONT')
+
+    if (isTranslationError) {
+      reset()
+      return
+    }
+
     console.error(error)
-  }, [error])
+  }, [error, reset])
 
   return (
     <div className="min-h-screen bg-surface flex items-center justify-center px-6">
@@ -20,7 +31,7 @@ export default function Error({
           Something went wrong
         </h2>
         <p className="font-body text-on-surface-variant mb-8">
-          An unexpected error occurred. Try refreshing the page.
+          Try refreshing the page.
         </p>
         <button
           onClick={reset}

@@ -182,7 +182,7 @@ export default function Hero() {
           variants={itemVariants}
           className="h-10 flex items-center justify-center mb-8"
         >
-          <span className="font-label text-lg md:text-xl text-on-surface-variant">
+          <span translate="no" className="font-label text-lg md:text-xl text-on-surface-variant">
             {typewritten}
             <span className="animate-pulse text-primary ml-0.5">|</span>
           </span>
