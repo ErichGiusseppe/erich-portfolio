@@ -5,7 +5,7 @@ export const personal = {
   email: 'erichgiusseppesotop@gmail.com',
   github: 'ErichGiusseppe',
   githubUrl: 'https://github.com/ErichGiusseppe',
-  linkedinUrl: 'https://www.linkedin.com/in/erichgiusseppe',
+  linkedinUrl: 'https://www.linkedin.com/in/erich-giusseppe-soto-parada-8b05611bb/',
   location: 'Bogotá, Colombia',
   bio: [
     'Currently pursuing an M.Sc. in Information Engineering at Universidad de los Andes (GPA 4.63/5.0), with research at the Conecta-TE lab under the Academic Vice-Rectory. My work focuses on educational analytics, NLP, and machine learning applied to real-world systems.',
