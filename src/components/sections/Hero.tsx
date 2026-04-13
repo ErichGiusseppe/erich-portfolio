@@ -146,7 +146,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden pt-16 pb-24">
+    <section id="hero" className="relative min-h-[95vh] flex items-center justify-center overflow-hidden pt-16 pb-24">
       <ParticleCanvas />
 
       <div

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useLanguage } from '@/lib/i18n'
 
 const SECTIONS = [
+  { id: 'hero' },
   { id: 'about' },
   { id: 'experience' },
   { id: 'projects' },
@@ -13,9 +14,10 @@ const SECTIONS = [
 
 export default function SectionDots() {
   const { tr } = useLanguage()
-  const [active, setActive] = useState('')
+  const [active, setActive] = useState('hero')
 
   const labels: Record<string, string> = {
+    hero: 'Erich Giusseppe',
     about: tr.nav.about,
     experience: tr.nav.experience,
     projects: tr.nav.projects,
