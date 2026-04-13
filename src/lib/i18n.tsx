@@ -324,7 +324,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const setLang = (l: Lang) => {
     setLangState(l)
     localStorage.setItem('portfolio-lang', l)
+    document.documentElement.lang = l
   }
+
+  useEffect(() => {
+    document.documentElement.lang = lang
+  }, [lang])
 
   return (
     <LanguageContext.Provider value={{ lang, setLang, tr: translations[lang] }}>
