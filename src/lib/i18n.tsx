@@ -318,7 +318,18 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const stored = localStorage.getItem('portfolio-lang') as Lang | null
-    if (stored && stored in translations) setLangState(stored)
+    if (stored && stored in translations) {
+      setLangState(stored)
+      return
+    }
+    const preferred = [...(navigator.languages ?? [navigator.language])]
+    for (const l of preferred) {
+      const code = l.split('-')[0].toLowerCase() as Lang
+      if (code in translations) {
+        setLangState(code)
+        return
+      }
+    }
   }, [])
 
   const setLang = (l: Lang) => {
