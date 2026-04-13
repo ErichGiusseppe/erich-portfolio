@@ -55,6 +55,11 @@ export default function Experience() {
                     <p className="font-label text-sm text-outline mt-0.5">
                       {item.company}
                     </p>
+                    {item.companyType && (
+                      <p className="font-label text-xs text-outline/50 mt-0.5">
+                        {item.companyType}
+                      </p>
+                    )}
                   </div>
                   <span
                     className={`font-label text-xs tracking-wide shrink-0 ${

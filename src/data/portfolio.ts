@@ -40,6 +40,7 @@ export const experience = [
   {
     title: 'Graduate Research Assistant',
     company: 'Universidad de los Andes — Conecta-TE',
+    companyType: 'Top-ranked Colombian university · Educational analytics research lab',
     period: 'Aug 2025 – Present',
     current: true,
     bullets: [
@@ -51,6 +52,7 @@ export const experience = [
   {
     title: 'Teaching Assistant — M.Sc. Artificial Intelligence (MaIA)',
     company: 'Universidad de los Andes',
+    companyType: 'Top-ranked Colombian university · Graduate AI program',
     period: 'Aug 2025 – Present',
     current: true,
     bullets: [
@@ -60,6 +62,7 @@ export const experience = [
   {
     title: 'Data Specialist',
     company: 'Duppla',
+    companyType: 'Colombian PropTech startup · Automated real estate valuation',
     period: 'Oct 2024 – Apr 2025',
     current: false,
     bullets: [
@@ -71,6 +74,7 @@ export const experience = [
   {
     title: 'Analytics Intern',
     company: 'Habi',
+    companyType: 'Colombian PropTech unicorn · Real estate marketplace',
     period: 'Jan – Jul 2024',
     current: false,
     bullets: [
