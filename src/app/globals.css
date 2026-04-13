@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-headline: 'Noto Serif', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-label: 'Space Grotesk', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #111319;
+  color: #e2e2eb;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(192, 193, 255, 0.2);
+  color: #e1e0ff;
+}
+
+.glass-panel {
+  background: rgba(30, 31, 38, 0.7);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(70, 69, 84, 0.15);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5), 0px 0px 1px 1px rgba(192, 193, 255, 0.08);
+}
+
+.glass-nav {
+  background: rgba(25, 27, 34, 0.8);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-bottom: 1px solid rgba(70, 69, 84, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.glow-primary {
+  box-shadow: 0 0 40px rgba(192, 193, 255, 0.12);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 20px rgba(255, 185, 95, 0.25);
+}
+
+.text-glow {
+  text-shadow: 0 0 40px rgba(192, 193, 255, 0.3);
+}
+
+.gradient-cta {
+  background: linear-gradient(135deg, #c0c1ff 0%, #8083ff 100%);
+}
+
+.timeline-line {
+  background: linear-gradient(to bottom, #464554, transparent);
+}
+
+.card-hover {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              background-color 0.3s ease,
+              box-shadow 0.4s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
