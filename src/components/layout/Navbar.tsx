@@ -9,7 +9,6 @@ const links = [
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Publications', href: '#publications' },
-  { label: 'Contact', href: '#contact' },
 ]
 
 export default function Navbar() {
@@ -24,7 +23,7 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    const sections = links.map(l => l.href.slice(1))
+    const sections = [...links.map(l => l.href.slice(1)), 'contact']
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(e => {
@@ -105,10 +104,10 @@ export default function Navbar() {
               </svg>
             </a>
             <a
-              href={`mailto:${personal.email}`}
+              href="#contact"
               className="gradient-cta text-on-primary font-label text-xs font-semibold px-5 py-2 rounded-lg tracking-wide hover:opacity-90 transition-opacity"
             >
-              Contact
+              Let&apos;s talk →
             </a>
           </div>
 
@@ -135,6 +134,19 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
           >
+            <motion.a
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              className="gradient-cta text-on-primary font-label text-sm font-semibold px-10 py-3.5 rounded-xl tracking-wide"
+              initial={{ opacity: 0, y: -16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05 }}
+            >
+              Let&apos;s talk →
+            </motion.a>
+
+            <div className="w-12 h-px bg-outline-variant/30" />
+
             {links.map((link, i) => (
               <motion.a
                 key={link.href}
@@ -143,20 +155,11 @@ export default function Navbar() {
                 className="font-headline text-3xl italic text-on-surface hover:text-primary transition-colors"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.07 }}
+                transition={{ delay: 0.1 + i * 0.07 }}
               >
                 {link.label}
               </motion.a>
             ))}
-            <motion.a
-              href={`mailto:${personal.email}`}
-              className="gradient-cta text-on-primary font-label text-sm font-semibold px-8 py-3 rounded-lg mt-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: links.length * 0.07 }}
-            >
-              Contact
-            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>

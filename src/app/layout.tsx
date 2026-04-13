@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Noto_Serif, Space_Grotesk } from 'next/font/google'
+import { Inter, Noto_Serif, DM_Sans } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({
@@ -16,7 +16,7 @@ const notoSerif = Noto_Serif({
   display: 'swap',
 })
 
-const spaceGrotesk = Space_Grotesk({
+const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-label',
@@ -45,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`dark ${inter.variable} ${notoSerif.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`dark ${inter.variable} ${notoSerif.variable} ${dmSans.variable}`}>
       <head>
         <link
           rel="stylesheet"

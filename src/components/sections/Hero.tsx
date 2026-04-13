@@ -200,16 +200,16 @@ export default function Hero() {
           className="flex flex-wrap items-center justify-center gap-4 mb-16"
         >
           <a
-            href="#projects"
+            href="#contact"
             className="gradient-cta text-on-primary font-label font-semibold px-8 py-3.5 rounded-xl tracking-wide hover:opacity-90 transition-opacity shadow-glow-primary"
           >
-            Explore Projects
+            Let&apos;s talk →
           </a>
           <a
-            href="#publications"
+            href="#projects"
             className="glass-panel font-label font-semibold px-8 py-3.5 rounded-xl tracking-wide text-on-surface hover:bg-surface-container-high transition-colors"
           >
-            Publications
+            View Projects
           </a>
         </motion.div>
 
